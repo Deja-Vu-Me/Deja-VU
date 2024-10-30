@@ -113,4 +113,19 @@ body {
 
 .fade-out {
     animation: fadeOut 0.5s forwards; /* Duration should match JavaScript delay */
+    /* Remove underline and set default color for all links */
+a {
+    text-decoration: none;
+    color: #87F5FB; /* Default color for links */
+    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease; /* Smooth transition for effects */
+}
+
+/* Hover effect for links */
+a:hover {
+    color: #2F131E; /* Inverted color */
+    background-color: #87F5FB; /* Inverse background */
+    transform: scale(1.15); /* Increase size by 15% */
+    text-decoration: none; /* Keep underline removed on hover */
+}
+
 }
