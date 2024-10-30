@@ -5,10 +5,11 @@
     box-sizing: border-box;
 }
 
+/* Base Styling */
 body {
     font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #f4f4f4;
+    color: #CEC3C1; /* Light text color for readability */
+    background-color: #240115; /* Dark background */
 }
 
 .container {
@@ -19,16 +20,18 @@ body {
 
 /* Header */
 .header {
-    background: #333;
-    color: #fff;
+    background: #2F131E; /* Dark header background */
+    color: #CEC3C1; /* Light text color */
     padding: 20px 0;
 }
 
 .header .logo {
     font-size: 24px;
     font-weight: bold;
+    color: #87F5FB; /* Accent color */
 }
 
+/* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
@@ -36,15 +39,15 @@ body {
 }
 
 .nav-links a {
-    color: #fff;
+    color: #CEC3C1; /* Light color for navigation links */
     text-decoration: none;
     font-weight: bold;
 }
 
 /* Hero Section */
 .hero {
-    background: #007bff;
-    color: #fff;
+    background: #DE3C4B; /* Main accent color for hero section */
+    color: #CEC3C1;
     text-align: center;
     padding: 60px 0;
 }
@@ -60,8 +63,8 @@ body {
 }
 
 .cta {
-    background: #fff;
-    color: #007bff;
+    background: #CEC3C1; /* Light color for button background */
+    color: #2F131E; /* Dark text color for contrast */
     padding: 10px 20px;
     border: none;
     font-size: 16px;
@@ -72,6 +75,7 @@ body {
 .features {
     padding: 40px 0;
     text-align: center;
+    background-color: #2F131E; /* Dark section background */
 }
 
 .feature-item {
@@ -80,25 +84,26 @@ body {
 
 .feature-item h3 {
     font-size: 24px;
+    color: #87F5FB; /* Accent color for feature headings */
 }
 
 .feature-item p {
     font-size: 16px;
-    color: #666;
+    color: #CEC3C1;
 }
 
 /* Footer */
 .footer {
-    background: #333;
-    color: #fff;
+    background: #240115; /* Very dark background */
+    color: #CEC3C1;
     text-align: center;
     padding: 20px 0;
 }
 
-/* styles.css */
-a {
-    text-decoration: none; /* Removes underline from all links */
-}
+.footer a {
+    color: #87F5FB; /* Link color in footer */
+    text-decoration: none;
+    }
 
 /* Fade-Out Animation */
 @keyframes fadeOut {
