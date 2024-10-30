@@ -1,3 +1,44 @@
+:root {
+    --color-50: #f0f3fe;
+    --color-100: #dde4fc;
+    --color-200: #c3d0fa;
+    --color-300: #99b2f7;
+    --color-400: #698bf1;
+    --color-500: #3959ea;
+    --color-600: #3044e0;
+    --color-700: #2832cd;
+    --color-800: #262aa7;
+    --color-900: #242a84;
+    --color-950: #1a1c51;
+}
+body {
+    background-color: var(--color-50);
+    color: var(--color-900);
+}
+
+h1 {
+    color: var(--color-700);
+}
+
+.button {
+    background-color: var(--color-500);
+    color: #fff;
+}
+
+.button:hover {
+    background-color: var(--color-600);
+}
+.bg-50 { background-color: #f0f3fe; }
+.bg-100 { background-color: #dde4fc; }
+.bg-200 { background-color: #c3d0fa; }
+.bg-300 { background-color: #99b2f7; }
+.bg-400 { background-color: #698bf1; }
+.bg-500 { background-color: #3959ea; }
+.bg-600 { background-color: #3044e0; }
+.bg-700 { background-color: #2832cd; }
+.bg-800 { background-color: #262aa7; }
+.bg-900 { background-color: #242a84; }
+.bg-950 { background-color: #1a1c51; }
 /* General Reset */
 * {
     margin: 0;
