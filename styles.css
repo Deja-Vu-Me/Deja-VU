@@ -45,6 +45,13 @@ body {
     color: var(--color-400); /* Accent color */
 }
 
+/* Remove underlines from all clickable elements */
+a,
+.button,
+.cta {
+    text-decoration: none; /* Remove underline */
+}
+
 /* Navigation Links */
 .nav-links {
     list-style: none;
@@ -54,7 +61,6 @@ body {
 
 .nav-links a {
     color: var(--color-100); /* Light color for navigation links */
-    text-decoration: none;
     font-weight: bold;
     transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease; /* Smooth transition for effects */
 }
@@ -91,6 +97,14 @@ body {
     border: none;
     font-size: 16px;
     cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Add transition */
+}
+
+/* Button Hover Effect */
+.cta:hover {
+    background: var(--color-950); /* Darker background on hover */
+    color: var(--color-100); /* Change text color for contrast */
+    transform: scale(1.05); /* Slight size increase */
 }
 
 /* Features Section */
