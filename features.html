@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header bg-500">
+        <div class="container">
+            <h1 class="logo"><a href="index.html">Portfolio</a></h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="features.html" class="nav-link">Features</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Our Features</h2>
+            <div class="feature-item">
+                <h3>Feature 1</h3>
+                <p>This feature allows users to easily navigate through our website with intuitive design and layout.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Feature 2</h3>
+                <p>Provides access to a wealth of resources and information tailored to meet your needs.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Feature 3</h3>
+                <p>Interactive elements enhance user engagement and provide a dynamic experience.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Feature 4</h3>
+                <p>Responsive design ensures a seamless experience across all devices, from desktop to mobile.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Feature 5</h3>
+                <p>Regular updates and improvements keep our content fresh and relevant.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 <a href="index.html">Sariga</a>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Fade-Out Animation on Links -->
+    <script>
+        // Select all navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Function to handle link click
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent default link behavior
+                const href = this.getAttribute('href'); // Get the link's href
+                
+                // Add fade-out class to the clicked link
+                this.classList.add('fade-out');
+
+                // Delay navigating to the new page
+                setTimeout(() => {
+                    window.location.href = href; // Redirect after animation
+                }, 500); // Match this with the CSS animation duration
+            });
+        });
+    </script>
+
+</body>
+</html>
