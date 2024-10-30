@@ -11,12 +11,12 @@
     <!-- Header Section -->
     <header class="header">
         <div class="container">
-            <h1 class="logo"><a href="index.html">Sariga</a></h1> <!-- Logo is now a clickable link to the homepage -->
+            <h1 class="logo"><a href="index.html">Sariga</a></h1>
             <nav>
-                </ul><ul class="nav-links">
-    <li><a href="index.html" class="nav-link">Home</a></li>
-    <li><a href="features.html" class="nav-link">Features</a></li>
-    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="features.html" class="nav-link">Features</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -25,9 +25,9 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <h2>Welcome to Deja Vu</h2>
+            <h2>Welcome to Sariga</h2>
             <p>Experience the best design and functionality with our tools.</p>
-            <a href="#features" class="cta">Get Started</a> <!-- 'Get Started' button now links to the Features section -->
+            <a href="#features" class="cta">Get Started</a>
         </div>
     </section>
 
@@ -35,15 +35,15 @@
     <section id="features" class="features">
         <div class="container">
             <div class="feature-item">
-                <h3><a href="feature1.html">Feature 1</a></h3> <!-- Feature title now links to Feature 1 page -->
+                <h3><a href="feature1.html">Feature 1</a></h3>
                 <p>Feature 1 description.</p>
             </div>
             <div class="feature-item">
-                <h3><a href="feature2.html">Feature 2</a></h3> <!-- Feature title now links to Feature 2 page -->
+                <h3><a href="feature2.html">Feature 2</a></h3>
                 <p>Feature 2 description.</p>
             </div>
             <div class="feature-item">
-                <h3><a href="feature3.html">Feature 3</a></h3> <!-- Feature title now links to Feature 3 page -->
+                <h3><a href="feature3.html">Feature 3</a></h3>
                 <p>Feature 3 description.</p>
             </div>
         </div>
@@ -52,29 +52,31 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2023 <a href="index.html">Sariga</a>. All rights reserved.</p> <!-- Footer text now includes a clickable link to the homepage -->
+            <p>&copy; 2023 <a href="index.html">Sariga</a>. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- JavaScript for Fade-Out Animation on Links -->
     <script>
-    // Select all navigation links
-    const navLinks = document.querySelectorAll('.nav-link');
+        // Select all navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
 
-    // Function to handle link click
-    navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault(); // Prevent default link behavior
-            const href = this.getAttribute('href'); // Get the link's href
-            
-            // Add fade-out class to the clicked link
-            this.classList.add('fade-out');
+        // Function to handle link click
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent default link behavior
+                const href = this.getAttribute('href'); // Get the link's href
+                
+                // Add fade-out class to the clicked link
+                this.classList.add('fade-out');
 
-            // Delay navigating to the new page
-            setTimeout(() => {
-                window.location.href = href; // Redirect after animation
-            }, 500); // Match this with the CSS animation duration
+                // Delay navigating to the new page
+                setTimeout(() => {
+                    window.location.href = href; // Redirect after animation
+                }, 500); // Match this with the CSS animation duration
+            });
         });
-    });
-</script>
+    </script>
     
 </body>
 </html>
