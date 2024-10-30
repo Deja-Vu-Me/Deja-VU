@@ -55,6 +55,26 @@
             <p>&copy; 2023 <a href="index.html">Sariga</a>. All rights reserved.</p> <!-- Footer text now includes a clickable link to the homepage -->
         </div>
     </footer>
+    <script>
+    // Select all navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
 
+    // Function to handle link click
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent default link behavior
+            const href = this.getAttribute('href'); // Get the link's href
+            
+            // Add fade-out class to the clicked link
+            this.classList.add('fade-out');
+
+            // Delay navigating to the new page
+            setTimeout(() => {
+                window.location.href = href; // Redirect after animation
+            }, 500); // Match this with the CSS animation duration
+        });
+    });
+</script>
+    
 </body>
 </html>
