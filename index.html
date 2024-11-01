@@ -5,46 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-
-   <!-- Header Section -->
-<header class="header bg-500"> <!-- Add bg-500 class here -->
-    <div class="container">
-        <h1 class="logo"><a href="index.html">Portfolio</a></h1>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="features.html" class="nav-link">Features</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-    
+    <!-- Header Section -->
+    <header class="header bg-500">
+        <div class="container">
+            <h1 class="bubble-text outline-text"><a href="index.html">Portfolio</a></h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="features.html" class="nav-link"><i class="fas fa-star"></i> Features</a></li>
+                    <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
             <h2>Welcome to Our Website</h2>
-            <p>It's Still on trials Contact us and give further Instructions to improve our code.</p>
+            <p>It's Still on trials. Contact us and give further Instructions to improve our code.</p>
             <a href="#features" class="cta">Get Started</a>
         </div>
     </section>
 
     <!-- Features Section -->
-<<<<<<< Updated upstream
-<section id="features" class="features">
-    <div class="container">
-        <div class="feature-item">
-            <h3><a href="https://telegra.ph/About-me-08-09-20" target="_blank" rel="noopener noreferrer">My Telegraph</a></h3>
-            <p>Provides external links to useful websites.</p>
-=======
     <section id="features" class="features">
         <div class="container">
             <div class="feature-item">
-                <h3><a href="https://telegra.ph/About-me-08-09-20" target="_blank" rel="noopener noreferrer"> My Telegraph</a></h3>
+                <h3><a href="https://telegra.ph/About-me-08-09-20" target="_blank" rel="noopener noreferrer">My Telegraph</a></h3>
                 <p>Provides external links to useful websites.</p>
             </div>
             <div class="feature-item">
@@ -55,30 +46,28 @@
                 <h3><a href="feature3.html">Feature 3</a></h3>
                 <p>Feature 3 description.</p>
             </div>
->>>>>>> Stashed changes
         </div>
-        <div class="feature-item">
-            <h3><a href="feature2.html">Feature 2</a></h3>
-            <p>Feature 2 description.</p>
-        </div>
-        <div class="feature-item">
-            <h3><a href="feature3.html">Feature 3</a></h3>
-            <p>Feature 3 description.</p>
-        </div>
-    </div>
-</section>
-
-    
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2023 <a href="index.html">Portfolio</a>. All rights reserved.</p>
+            <p>&copy; 2024 <a href="index.html">Portfolio</a>. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- JavaScript for Fade-Out Animation on Links -->
     <script>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
         // Select all navigation links
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -87,7 +76,7 @@
             link.addEventListener('click', function (e) {
                 e.preventDefault(); // Prevent default link behavior
                 const href = this.getAttribute('href'); // Get the link's href
-                
+
                 // Add fade-out class to the clicked link
                 this.classList.add('fade-out');
 
@@ -98,6 +87,5 @@
             });
         });
     </script>
-    
 </body>
 </html>
