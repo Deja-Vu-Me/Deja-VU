@@ -1,15 +1,13 @@
+/* Import the Raleway font */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+
+/* Root color variables */
 :root {
-    --color-50: #f0f3fe;
-    --color-100: #dde4fc;
-    --color-200: #c3d0fa;
-    --color-300: #99b2f7;
-    --color-400: #698bf1;
-    --color-500: #3959ea;
-    --color-600: #3044e0;
-    --color-700: #2832cd;
-    --color-800: #262aa7;
-    --color-900: #242a84;
-    --color-950: #1a1c51;
+    --text-color: #ffffff;
+    --secondary-bg: #6d847e;
+    --tertiary-bg: #303559;
+    --quaternary-bg: #1b2039;
+    --accent-color: #ee9049;
 }
 
 /* General Reset */
@@ -21,35 +19,29 @@
 
 /* Base Styling */
 body {
-    font-family: Arial, sans-serif;
-    color: var(--color-900); /* Light text color for readability */
-    background-color: var(--color-50); /* Using CSS variable */
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--quaternary-bg); /* Darkest color for body background */
+    color: var(--text-color);
 }
 
+/* Container */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: auto;
 }
 
-/* Header */
+/* Header Styling */
 .header {
-    background: var(--color-950); /* Dark header background */
-    color: var(--color-100); /* Light text color */
+    background-color: var(--quaternary-bg); /* Dark background for header */
     padding: 20px 0;
 }
 
 .header .logo {
     font-size: 24px;
-    font-weight: bold;
-    color: var(--color-400); /* Accent color */
-}
-
-/* Remove underlines from all clickable elements */
-a,
-.button,
-.cta {
+    font-weight: 600; /* Semibold */
     text-decoration: none; /* Remove underline */
+    color: var(--accent-color); /* Accent color for logo */
 }
 
 /* Navigation Links */
@@ -58,60 +50,68 @@ a,
     display: flex;
     gap: 20px;
 }
-
-.nav-links a {
-    color: var(--color-100); /* Light color for navigation links */
-    font-weight: bold;
-    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease; /* Smooth transition for effects */
+.nav-links a,
+.feature-item h3 a,
+.cta {
+    position: relative;
+    display: inline-block;
+    text-decoration: none; /* No underline */
 }
 
-/* Hover effect for links */
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600; /* Semibold */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.nav-links a,
+.feature-item h3 a,
+.cta {
+    position: relative;
+    display: inline-block;
+    text-decoration: none; /* No underline */
+}
+
+/* Navigation Hover */
 .nav-links a:hover {
-    color: var(--color-950); /* Inverted color */
-    background-color: var(--color-400); /* Inverse background */
-    transform: scale(1.15); /* Increase size by 15% */
+    color: var(--accent-color);
+    transform: scale(1.1);
 }
 
 /* Hero Section */
 .hero {
-    background: var(--color-400); /* Main accent color for hero section */
-    color: var(--color-100);
+    background-color: var(--secondary-bg); /* Color below text */
+    color: var(--text-color);
     text-align: center;
     padding: 60px 0;
 }
 
 .hero h2 {
     font-size: 36px;
+    font-weight: 600; /* Semibold */
 }
 
 .hero p {
     font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    font-weight: 400; /* Regular */
+    margin: 10px 0 20px;
 }
 
 .cta {
-    background: var(--color-100); /* Light color for button background */
-    color: var(--color-950); /* Dark text color for contrast */
+    background-color: var(--accent-color);
+    color: var(--quaternary-bg);
     padding: 10px 20px;
     border: none;
     font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Add transition */
-}
-
-/* Button Hover Effect */
-.cta:hover {
-    background: var(--color-950); /* Darker background on hover */
-    color: var(--color-100); /* Change text color for contrast */
-    transform: scale(1.05); /* Slight size increase */
 }
 
 /* Features Section */
 .features {
     padding: 40px 0;
+    background-color: var(--tertiary-bg); /* Color below */
     text-align: center;
-    background-color: var(--color-950); /* Dark section background */
 }
 
 .feature-item {
@@ -120,25 +120,27 @@ a,
 
 .feature-item h3 {
     font-size: 24px;
-    color: var(--color-400); /* Accent color for feature headings */
+    font-weight: 600; /* Semibold */
+    color: var(--accent-color);
 }
 
 .feature-item p {
     font-size: 16px;
-    color: var(--color-100);
+    font-weight: 400; /* Regular */
+    color: var(--text-color);
 }
 
 /* Footer */
 .footer {
-    background: var(--color-900); /* Very dark background */
-    color: var(--color-100);
+    background-color: var(--tertiary-bg);
+    color: var(--text-color);
     text-align: center;
     padding: 20px 0;
 }
 
 .footer a {
-    color: var(--color-400); /* Link color in footer */
-    text-decoration: none; /* Remove underline */
+    color: var(--accent-color);
+    text-decoration: none;
 }
 
 /* Fade-Out Animation */
@@ -148,5 +150,5 @@ a,
 }
 
 .fade-out {
-    animation: fadeOut 0.5s forwards; /* Duration should match JavaScript delay */
+    animation: fadeOut 0.5s forwards;
 }
