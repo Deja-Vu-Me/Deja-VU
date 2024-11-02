@@ -1,0 +1,191 @@
+/* Import the Raleway font */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+
+/* Root color variables */
+:root {
+    --text-color: #ffffff;
+    --secondary-bg: #303559;
+    --tertiary-bg: #303559;
+    --quaternary-bg: #1b2039;
+    --accent-color: #ee9049;
+    --inverse-bg: #ffffff;
+    --inverse-text: #1b2039;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--quaternary-bg);
+    color: var(--text-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Header Styling */
+.header {
+    background: linear-gradient(135deg, #1b2039, #303559);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+.header .logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin-left: auto;
+}
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.nav-links a:hover {
+    background-color: var(--inverse-bg);
+    color: var(--inverse-text);
+    transform: scale(1.1);
+}
+
+/* Responsive Navigation */
+@media (max-width: 600px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: var(--tertiary-bg);
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-toggle {
+        display: block;
+        color: var(--text-color);
+    }
+}
+
+/* Contact Section */
+.contact {
+    padding: 40px 0;
+    background-color: var(--secondary-bg);
+    text-align: center;
+}
+.contact h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.contact p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+form label {
+    font-weight: 600;
+    margin-top: 10px;
+    color: var(--text-color);
+}
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--inverse-bg);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--tertiary-bg);
+    color: var(--text-color);
+}
+form button {
+    background-color: var(--accent-color);
+    color: var(--quaternary-bg);
+    padding: 10px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+form button:hover {
+    background-color: var(--text-color);
+    color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* Social Media Links */
+.social-media-links {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.social-media-links li a {
+    color: var(--accent-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.social-media-links li a:hover {
+    color: var(--inverse-bg);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--tertiary-bg);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px 0;
+}
+.footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* Contact Details */
+.contact-details p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+.contact-details a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+.contact-details a:hover {
+    color: var(--inverse-bg);
+}
+
+/* Fade-Out Animation */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}

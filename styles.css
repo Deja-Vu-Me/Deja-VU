@@ -8,14 +8,8 @@
     --tertiary-bg: #303559;
     --quaternary-bg: #1b2039;
     --accent-color: #ee9049;
-    --inverse-bg: #ffffff; /* Inverse background */
-    --inverse-text: #1b2039; /* Inverse text color */
-    --_fw-900: 900;
-    --_fw-700: 700;
-    --_fw-400: 400;
-    --_clr-900: #000000;
-    --_clr-700: #444444;
-    --_clr-400: #888888;
+    --inverse-bg: #ffffff;
+    --inverse-text: #1b2039;
 }
 
 /* General Reset */
@@ -24,28 +18,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-a {
-    text-decoration: none;
-}
-.outline-text {
-    color: white; /* Text color */
-    text-shadow: 
-        -2px 2px 0 #ffffff,  
-        2px 2px 0 #ffffff,
-        -2px -2px 0 #ffffff,
-        2px -2px 0 #ffffff, /* Outline color */
-        2px 0 0 #ffffff,
-        -2px 0 0 #ffffff,
-        0 2px 0 #ffffff,
-        0 -2px 0 #ffffff;
-}
 
-
-
-/* Base Styling */
 body {
     font-family: 'Raleway', sans-serif;
-    background-color: var(--quaternary-bg); /* Darkest color for body background */
+    background-color: var(--quaternary-bg);
     color: var(--text-color);
 }
 
@@ -58,124 +34,116 @@ body {
 
 /* Header Styling */
 .header {
-    background: linear-gradient(135deg, #1b2039, #303559); /* Gradient background for header */
+    background: linear-gradient(135deg, #1b2039, #303559);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px 0;
 }
 .header .logo {
     font-size: 24px;
-    font-weight: 600; /* Semibold */
-    text-decoration: none; /* Remove underline */
-    color: var(--accent-color); /* Accent color for logo */
+    font-weight: 600;
+    color: var(--accent-color);
 }
-.header .nav-links a:hover,
-.header .nav-links a:focus {
-    background-color: var(--inverse-bg); /* Inverse background color on hover */
-    color: var(--inverse-text); /* Inverse text color on hover */
-    transform: scale(2); /* Significant increase in size */
-    outline: none;
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* Bubble Text */
-.bubble-text {
-    font-size: clamp(2rem, calc(2rem + 3.5vmin), 8rem);
-    color: hsl(0, 0%, 50%);
-    user-select: none;
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-}
-.bubble-text .split-char {
-    font-weight: 200;
-    transition: font-weight 0.5s ease;
-}
-.bubble-text .split-char:hover {
-    font-weight: var(--_fw-900);
-    color: var(--_clr-900);
-}
-/* Left side hover effects */
-.bubble-text .split-char:has(+ .split-char:hover) {
-    font-weight: var(--_fw-700);
-    color: var(--_clr-700);
-}
-.bubble-text .split-char:has(+ .split-char + .split-char:hover) {
-    font-weight: var(--_fw-400);
-    color: var(--_clr-400);
-}
-/* Right side hover effects */
-.bubble-text .split-char:hover + .split-char {
-    font-weight: var(--_fw-700);
-    color: var(--_clr-700);
-}
-.bubble-text .split-char:hover + .split-char + .split-char {
-    font-weight: var(--_fw-400);
-    color: var(--_clr-400);
-}
-
-/* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 20px; /* Adds space between each link */
+    margin-left: auto; /* Moves the navigation links to the right side */
 }
+.nav-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+}
+
+/* Responsive Navigation */
+@media (max-width: 600px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: var(--tertiary-bg);
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-toggle {
+        display: block;
+    }
+}
+
+/* Links Styling */
 .nav-links a,
 .feature-item h3 a,
 .cta {
-    background-color: var(--accent-color); /* Button background color */
-    color: var(--quaternary-bg); /* Button text color */
+    background-color: var(--accent-color);
+    color: var(--quaternary-bg);
     padding: 10px 20px;
-    border: none;
-    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    border-radius: 25px; /* Adjust the value for desired roundness */
-    text-decoration: none; /* No underline */
+    border-radius: 25px;
+    text-decoration: none;
 }
-.nav-links a {
-    color: var(--text-color);
-    font-weight: 600; /* Semibold */
-    transition: transform 0.3s ease, color 0.3s ease;
+.nav-links a:hover,
+.nav-links a:focus {
+    background-color: var(--inverse-bg);
+    color: var(--inverse-text);
+    transform: scale(1.1);
+    outline: none;
+}
+
+/* Outline Text */
+.outline-text {
+    color: white;
+    -webkit-text-stroke: 2px #ffffff;
 }
 
 /* Hero Section */
 .hero {
-    background-color: var(--secondary-bg); /* Color below text */
+    background-color: var(--secondary-bg);
     color: var(--text-color);
     text-align: center;
     padding: 60px 0;
 }
 .hero h2 {
     font-size: 36px;
-    font-weight: 600; /* Semibold */
+    font-weight: 600;
 }
 .hero p {
     font-size: 18px;
-    font-weight: 400; /* Regular */
     margin: 10px 0 20px;
 }
 .cta:hover {
-    background-color: var(--text-color); /* Light color on hover */
-    color: var(--accent-color); /* Dark text color on hover */
-    transform: scale(1.05); /* Slightly increase size */
+    background-color: var(--text-color);
+    color: var(--accent-color);
+    transform: scale(1.05);
 }
 
 /* Features Section */
 .features {
     padding: 40px 0;
-    background-color: var(--tertiary-bg); /* Color below */
+    background-color: var(--tertiary-bg);
     text-align: center;
-}
-.feature-item {
-    margin-bottom: 20px;
 }
 .feature-item h3 {
     font-size: 24px;
-    font-weight: 600; /* Semibold */
+    font-weight: 600;
     color: var(--accent-color);
 }
 .feature-item p {
+    padding: 16px 0;
     font-size: 16px;
-    font-weight: 400; /* Regular */
     color: var(--text-color);
 }
 
@@ -198,28 +166,4 @@ body {
 }
 .fade-out {
     animation: fadeOut 0.5s forwards;
-}
-
-/* Adding slight gap between logo and nav */
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-header .logo {
-    margin-right: 10px; /* Adjust the value for desired gap */
-}
-header nav {
-    margin-left: 10px; /* Adjust the value for desired gap */
-}
-
-/* Toggle Scene */
-.toggle-scene {
-    overflow: visible !important;
-    height: 50vh; /* Assuming you meant viewport height */
-    position: absolute;
-}
-.toggle-scene .cord {
-    stroke: var(--cord);
-    cursor: move;
 }
