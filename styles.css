@@ -57,6 +57,14 @@ body {
     gap: 20px; /* Adds space between each link */
     margin-left: auto; /* Moves the navigation links to the right side */
 }
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 10px 15px; /* Adds padding around each link */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
 .nav-toggle {
     display: none;
     font-size: 24px;
