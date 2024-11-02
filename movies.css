@@ -25,11 +25,18 @@ body {
     padding: 20px 0;
 }
 .header .logo {
-    font-size: 24px;
+    font-size: 36px;
     font-weight: 600; /* Semibold */
     text-decoration: none; /* Remove underline */
     color: #ee9049; /* Accent color for logo */
 }
+.logo {
+    font-family: monospace;
+    font-size: 36px; /* Keep this or adjust as desired */
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
 
 /* Navigation Links */
 .nav-links {
@@ -87,4 +94,31 @@ body {
 .footer a {
     color: #ee9049;
     text-decoration: none;
+}
+/* Movie card styling */
+.kodfun-galeri {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.movie-card {
+    flex: 1;
+    border-radius: 1rem;
+    background-size: cover;
+    background-position: center;
+    height: 20rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.movie-info {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border-radius: 0 0 1rem 1rem;
 }

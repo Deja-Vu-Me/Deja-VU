@@ -134,7 +134,7 @@
 </head>
 <body>
     <header class="header">
-        <div class="logo">DEJAVU</div>
+        <div class="logo">THE CLOUD</div>
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -151,6 +151,11 @@
     <div class="kodfun-galeri" role="region" aria-label="Movie Gallery" id="movieGallery">
         <!-- Movie items will be dynamically inserted here -->
     </div>
+    <div class="kodfun-galeri" id="movieGallery">
+        <!-- Movie cards will be dynamically injected here by JavaScript -->
+    </div>
+
+    <script src="movies.js"></script> <!-- Link your JavaScript file here -->
 
     <script>
         // Array of movie objects
@@ -160,7 +165,6 @@
             { title: "Movie 3", description: "Movie 3 Description", imageUrl: "kf3.jpg", link: "https://example.com/movie3" },
             { title: "Movie 4", description: "Movie 4 Description", imageUrl: "kf4.jpg", link: "https://example.com/movie4" },
             { title: "Movie 5", description: "Movie 5 Description", imageUrl: "kf5.jpg", link: "https://example.com/movie5" },
-            { title: "Future Movie", description: "Future Movie Description", imageUrl: "placeholder.jpg", link: "https://example.com/futuremovie" }
         ];
 
         // Function to populate the movie gallery
