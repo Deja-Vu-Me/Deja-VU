@@ -1,54 +1,38 @@
-// Example movie text data copied from Telegram or similar source
-const movieText = `
-Image URL: https://m.media-amazon.com/images/M/MV5BZmFlMTMyMzQtNmI4NC00YTcyLTgwOGUtMzc4YjcyNDUyOGY3XkEyXkFqcGc@._V1_.jpg
-Title: Don't Move
-Rating: ⭐️ 6.1 / 10
-Release Date: 25/10/2024 (United States)
-Genre: 🧟 Horror, Thriller
-Language: English
-Story Line: It follows a seasoned killer as he injects a grieving woman with a paralytic agent. She must run, fight and hide before her body shuts down.
-Directors: Brian Netto, Adam Schindler
-Stars: Finn Wittrock, Moray Treadwell, Daniel Francis, Denis Kostadinov, Kate Nichols, Kelsey Asbille, Dylan Beam
-`;
+// Array of movie objects
+const movies = [
+    { title: "Movie 1", description: "Movie 1 Description", imageUrl: "kf1.jpg", link: "https://t.me/cloudofthem/3447" },
+    { title: "Movie 2", description: "Movie 2 Description", imageUrl: "kf2.jpg", link: "https://example.com/movie2" },
+    { title: "Movie 3", description: "Movie 3 Description", imageUrl: "kf3.jpg", link: "https://example.com/movie3" },
+    { title: "Movie 4", description: "Movie 4 Description", imageUrl: "kf4.jpg", link: "https://example.com/movie4" },
+    { title: "Movie 5", description: "Movie 5 Description", imageUrl: "kf5.jpg", link: "https://example.com/movie5" },
+];
 
-// Function to parse movie text data
-function parseMovieText(text) {
-    const imageUrlMatch = text.match(/Image URL: (.+)/);
-    const titleMatch = text.match(/Title: (.+)/);
-    const genreMatch = text.match(/Genre: (.+)/);
-    const languageMatch = text.match(/Language: (.+)/);
-    const storyLineMatch = text.match(/Story Line: (.+)/);
-
-    return {
-        imageUrl: imageUrlMatch ? imageUrlMatch[1] : '',
-        title: titleMatch ? titleMatch[1] : 'Untitled',
-        genre: genreMatch ? genreMatch[1] : 'Unknown',
-        language: languageMatch ? languageMatch[1] : 'Unknown',
-        storyLine: storyLineMatch ? storyLineMatch[1] : 'No description available.'
-    };
-}
-
-// Parse the data
-const movieData = parseMovieText(movieText);
-
-// Function to populate the gallery with movie data
-function populateGallery(data) {
+// Function to populate the movie gallery
+function populateGallery() {
     const gallery = document.getElementById('movieGallery');
-    const movieCard = document.createElement('div');
-    movieCard.classList.add('movie-card');
-    movieCard.style.backgroundImage = `url(${data.imageUrl})`;
+    movies.forEach(movie => {
+        const movieDiv = document.createElement('div');
+        movieDiv.style.backgroundImage = `url('${movie.imageUrl}')`;
 
-    movieCard.innerHTML = `
-        <div class="movie-info">
-            <h4>${data.title}</h4>
-            <p><strong>Genre:</strong> ${data.genre}</p>
-            <p><strong>Language:</strong> ${data.language}</p>
-            <p>${data.storyLine}</p>
-        </div>
-    `;
+        const movieInfo = document.createElement('div');
+        movieInfo.className = 'movie-info';
+        movieInfo.innerHTML = `
+            <h4>${movie.title}</h4>
+            <p>${movie.description}</p>
+            <a href="${movie.link}" target="_blank" style="color: var(--accent-color); text-decoration: none;">More Info</a>
+        `;
 
-    gallery.appendChild(movieCard);
+        movieDiv.appendChild(movieInfo);
+        gallery.appendChild(movieDiv);
+    });
 }
 
-// Call the function to display movie data
-populateGallery(movieData);
+// Call the function to populate the gallery on load
+window.onload = populateGallery;
+
+// Function to handle gallery scrolling
+function scrollGallery(direction) {
+    const gallery = document.querySelector('.kodfun-galeri');
+    const scrollAmount = gallery.clientWidth / 2; // Adjust scrolling amount as needed
+    gallery.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+}

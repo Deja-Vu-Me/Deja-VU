@@ -144,57 +144,10 @@
             </ul>
         </nav>
     </header>
-    
-    <button class="scroll-button left" aria-label="Scroll left" onclick="scrollGallery(-1)">&#10094;</button>
-    <button class="scroll-button right" aria-label="Scroll right" onclick="scrollGallery(1)">&#10095;</button>
-    
-    <div class="kodfun-galeri" role="region" aria-label="Movie Gallery" id="movieGallery">
-        <!-- Movie items will be dynamically inserted here -->
-    </div>
-    <div class="kodfun-galeri" id="movieGallery">
-        <!-- Movie cards will be dynamically injected here by JavaScript -->
-    </div>
 
-    <script src="movies.js"></script> <!-- Link your JavaScript file here -->
+    <!-- Movie Gallery Container -->
+<div id="movieGallery" class="kodfun-galeri"></div>
 
-    <script>
-        // Array of movie objects
-        const movies = [
-            { title: "Movie 1", description: "Movie 1 Description", imageUrl: "kf1.jpg", link: "https://example.com/movie1" },
-            { title: "Movie 2", description: "Movie 2 Description", imageUrl: "kf2.jpg", link: "https://example.com/movie2" },
-            { title: "Movie 3", description: "Movie 3 Description", imageUrl: "kf3.jpg", link: "https://example.com/movie3" },
-            { title: "Movie 4", description: "Movie 4 Description", imageUrl: "kf4.jpg", link: "https://example.com/movie4" },
-            { title: "Movie 5", description: "Movie 5 Description", imageUrl: "kf5.jpg", link: "https://example.com/movie5" },
-        ];
-
-        // Function to populate the movie gallery
-        function populateGallery() {
-            const gallery = document.getElementById('movieGallery');
-            movies.forEach(movie => {
-                const movieDiv = document.createElement('div');
-                movieDiv.style.backgroundImage = `url('${movie.imageUrl}')`;
-
-                const movieInfo = document.createElement('div');
-                movieInfo.className = 'movie-info';
-                movieInfo.innerHTML = `
-                    <h4>${movie.title}</h4>
-                    <p>${movie.description}</p>
-                    <a href="${movie.link}" target="_blank" style="color: ${getComputedStyle(document.body).getPropertyValue('--accent-color')}; text-decoration: underline;">More Info</a>
-                `;
-
-                movieDiv.appendChild(movieInfo);
-                gallery.appendChild(movieDiv);
-            });
-        }
-
-        // Call the function to populate the gallery on load
-        window.onload = populateGallery;
-
-        function scrollGallery(direction) {
-            const gallery = document.querySelector('.kodfun-galeri');
-            const scrollAmount = gallery.clientWidth / 2; // Adjust scrolling amount as needed
-            gallery.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-        }
-    </script>
+    <script src="movies.js"></script>
 </body>
 </html>
