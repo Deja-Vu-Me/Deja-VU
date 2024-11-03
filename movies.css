@@ -149,24 +149,6 @@ body {
     display: flex;
     height: 30rem;
     gap: 1rem;
-    overflow: hidden;
-    position: relative;
-    animation: scroll 30s linear infinite; /* Infinite scrolling */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth manual scroll */
 }
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%); /* Scrolls left by the full width */
-    }
-}
-
-
-.kodfun-galeri {
-    animation: auto-scroll 30s linear infinite; /* Adjust duration as needed */
-    will-change: transform; /* Optimizes performance */
-}
-
-/* Adjust these values to control speed and behavior */
