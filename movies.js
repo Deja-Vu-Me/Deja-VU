@@ -48,18 +48,6 @@ function populateGallery() {
         gallery.appendChild(movieDiv.cloneNode(true)); // Duplicate for seamless effect
     });
 }
-function autoScroll() {
-    const gallery = document.getElementById('movieGallery');
-    const totalWidth = gallery.scrollWidth;
-    const viewableWidth = gallery.clientWidth;
-
-    setInterval(() => {
-        gallery.scrollLeft += 1; // Scroll to the left
-        if (gallery.scrollLeft >= totalWidth - viewableWidth) {
-            gallery.scrollLeft = 0; // Reset scroll
-        }
-    }, 10); // Adjust interval for speed
-}
 function populateGallery() {
     const gallery = document.getElementById('movieGallery');
     movies.forEach(movie => {
