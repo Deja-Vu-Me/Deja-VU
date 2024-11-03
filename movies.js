@@ -1,6 +1,6 @@
 // Array of movie objects
 const movies = [
-    { title: "Movie 1", description: "Movie 1 Description", imageUrl: "kf1.jpg", link: "https://t.me/cloudofthem/3447" },
+    { title: "Movie 1", description: "Movie 1 Description", imageUrl: "kf1.jpg", link: "https://example.com/movie1" },
     { title: "Movie 2", description: "Movie 2 Description", imageUrl: "kf2.jpg", link: "https://example.com/movie2" },
     { title: "Movie 3", description: "Movie 3 Description", imageUrl: "kf3.jpg", link: "https://example.com/movie3" },
     { title: "Movie 4", description: "Movie 4 Description", imageUrl: "kf4.jpg", link: "https://example.com/movie4" },
@@ -19,7 +19,7 @@ function populateGallery() {
         movieInfo.innerHTML = `
             <h4>${movie.title}</h4>
             <p>${movie.description}</p>
-            <a href="${movie.link}" target="_blank" style="color: var(--accent-color); text-decoration: none;">More Info</a>
+            <a href="${movie.link}" target="_blank" style="color: ${getComputedStyle(document.body).getPropertyValue('--accent-color')}; text-decoration: underline;">More Info</a>
         `;
 
         movieDiv.appendChild(movieInfo);
@@ -27,12 +27,63 @@ function populateGallery() {
     });
 }
 
+
 // Call the function to populate the gallery on load
 window.onload = populateGallery;
+function populateGallery() {
+    const gallery = document.getElementById('movieGallery');
+    movies.forEach(movie => {
+        const movieDiv = document.createElement('div');
+        movieDiv.style.backgroundImage = `url('${movie.imageUrl}')`;
+        
+        const movieInfo = document.createElement('div');
+        movieInfo.className = 'movie-info';
+        movieInfo.innerHTML = `
+            <h4>${movie.title}</h4>
+            <p>${movie.description}</p>
+            <a href="${movie.link}" target="_blank">More Info</a>
+        `;
 
-// Function to handle gallery scrolling
-function scrollGallery(direction) {
-    const gallery = document.querySelector('.kodfun-galeri');
-    const scrollAmount = gallery.clientWidth / 2; // Adjust scrolling amount as needed
-    gallery.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        movieDiv.appendChild(movieInfo);
+        gallery.appendChild(movieDiv.cloneNode(true)); // Duplicate for seamless effect
+    });
 }
+function autoScroll() {
+    const gallery = document.getElementById('movieGallery');
+    const totalWidth = gallery.scrollWidth;
+    const viewableWidth = gallery.clientWidth;
+
+    setInterval(() => {
+        gallery.scrollLeft += 1; // Scroll to the left
+        if (gallery.scrollLeft >= totalWidth - viewableWidth) {
+            gallery.scrollLeft = 0; // Reset scroll
+        }
+    }, 10); // Adjust interval for speed
+}
+function populateGallery() {
+    const gallery = document.getElementById('movieGallery');
+    movies.forEach(movie => {
+        const movieDiv = document.createElement('div');
+        movieDiv.style.backgroundImage = `url('${movie.imageUrl}')`;
+
+        const movieInfo = document.createElement('div');
+        movieInfo.className = 'movie-info';
+        movieInfo.innerHTML = `
+            <h4>${movie.title}</h4>
+            <p>${movie.description}</p>
+            <a href="${movie.link}" target="_blank" style="color: ${getComputedStyle(document.body).getPropertyValue('--accent-color')}; text-decoration: underline;">More Info</a>
+        `;
+
+        movieDiv.appendChild(movieInfo);
+        gallery.appendChild(movieDiv);
+    });
+
+    // Clone the first movie for looping effect
+    const firstMovieClone = gallery.firstElementChild.cloneNode(true);
+    gallery.appendChild(firstMovieClone);
+}
+
+// Call the function on load
+window.onload = () => {
+    populateGallery();
+};
