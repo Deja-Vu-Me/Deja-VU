@@ -152,3 +152,64 @@ body {
     overflow-x: auto; /* Allow horizontal scrolling */
     scroll-behavior: smooth; /* Smooth manual scroll */
 }
+/* Gallery Container for buttons */
+.gallery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.scroll-button {
+    font-size: 24px;
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.scroll-button:hover {
+    background-color: var(--accent-color);
+}
+
+.kodfun-galeri {
+    display: flex;
+    height: 15rem;
+    gap: 0.5rem;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.kodfun-galeri > div {
+    min-width: 150px;
+    height: 100%;
+    background-size: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+/* Year and Month Navigation Styling */
+.year-navigation {
+    text-align: center;
+    color: var(--text-color);
+}
+
+.month-list {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding: 10px 0;
+    list-style: none;
+}
+
+.month-list a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.month-list a:hover {
+    text-decoration: underline;
+}
