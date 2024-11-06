@@ -1,0 +1,50 @@
+html
+    </div>
+    <div class="movie gallery">
+        <img src="https://res.cloudinary.com/dawbvrrc9/image/upload/v1730797828/IMG_20241105_143838_218_osscgj.jpg" />
+        <img src="https://res.cloudinary.com/dawbvrrc9/image/upload/v1730797828/IMG_20241105_143835_291_qdtd3g.jpg" />
+        <img src="https://res.cloudinary.com/dawbvrrc9/image/upload/v1730797828/IMG_20241105_143854_412_lprt5a.jpg" />
+        <img src="https://res.cloudinary.com/dawbvrrc9/image/upload/v1730797828/IMG_20241105_143902_281_nomsyu.jpg" />
+        <img src="https://res.cloudinary.com/dawbvrrc9/image/upload/v1730797827/IMG_20241105_143859_854_jcuto9.jpg" />
+    </div>
+
+css
+/* IMAGE GALLERY IMAGE SLIDER ANIMATION */
+.movie.gallery {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
+
+.movie.gallery img {
+    width: calc(20% - 10px); /* Keeps the images around 20% width on larger screens */
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid white;
+    transition: all ease-in-out 0.5s;
+}
+
+.movie.gallery img:hover {
+    width: calc(25% - 10px);
+}
+
+/* Media query for tablets and smaller screens */
+@media (max-width: 768px) {
+    .movie.gallery img {
+        width: calc(33.33% - 10px); /* 3 images per row on medium screens */
+    }
+}
+
+/* Media query for mobile screens */
+@media (max-width: 480px) {
+    .movie.gallery img {
+        width: calc(50% - 10px); /* 2 images per row on small screens */
+    }
+}

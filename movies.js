@@ -1,32 +1,13 @@
-const movies = [
-    { title: "Movie 1", description: "Movie 1 Description", imageUrl: "kf1.jpg", link: "https://example.com/movie1" },
-    { title: "Movie 2", description: "Movie 2 Description", imageUrl: "kf2.jpg", link: "https://example.com/movie2" },
-    { title: "Movie 3", description: "Movie 3 Description", imageUrl: "kf3.jpg", link: "https://example.com/movie3" },
-    { title: "Movie 4", description: "Movie 4 Description", imageUrl: "kf4.jpg", link: "https://example.com/movie4" },
-    { title: "Movie 5", description: "Movie 5 Description", imageUrl: "kf5.jpg", link: "https://example.com/movie5" },
-];
+const toggle_btn = document.querySelector('.toggle_btn');
+const toggle_btnIcon = document.querySelector('.toggle_btnIcon');
+const dropdown_menu = document.querySelector('.dropdown_menu');
 
-function populateGallery() {
-    const gallery = document.getElementById('movieGallery');
-    movies.forEach(movie => {
-        const movieDiv = document.createElement('div');
-        movieDiv.style.backgroundImage = `url('${movie.imageUrl}')`;
+toggle_btn.onclick = function() {
+    dropdown_menu.classList.toggle('open');
+    const isOpen = dropdown_menu.classList.contains('open');
 
-        const movieInfo = document.createElement('div');
-        movieInfo.className = 'movie-info';
-        movieInfo.innerHTML = `
-            <h4>${movie.title}</h4>
-            <p>${movie.description}</p>
-            <a href="${movie.link}" target="_blank" style="color: ${getComputedStyle(document.body).getPropertyValue('--accent-color')}; text-decoration: underline;">More Info</a>
-        `;
+    toggle_btnIcon.className = isOpen
+        ? 'fa-solid fa-xmark toggle_btnIcon' // X icon when open
+        : 'fa-solid fa-bars toggle_btnIcon'; // Bars icon when closed
+};
 
-        movieDiv.appendChild(movieInfo);
-        gallery.appendChild(movieDiv);
-    });
-
-    // Clone the first movie for looping effect
-    const firstMovieClone = gallery.firstElementChild.cloneNode(true);
-    gallery.appendChild(firstMovieClone);
-}
-
-window.onload = populateGallery;

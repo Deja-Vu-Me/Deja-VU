@@ -2,73 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="movies.css">
-    <title>Movie Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Movies</title>
+    <link rel="stylesheet" href="Movies.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">THE CLOUD</div>
-        <nav>
-            <ul class="nav-links">
+    <div class="container">
+        <div class="NavBar">
+            <div class="logo"><a href="#">Movies</a></div>
+            <ul class="links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="lists.html">Movies</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><a href="portfolio">Portfolio</a></li>
+                <li><a href="services">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-        </nav>
-    </header>
+            <a href="#" class="action_btn">Me</a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars toggle_btnIcon"></i> <!-- Icon to toggle -->
+            </div>
 
-    <div class="gallery-container">
-        <button class="scroll-button" id="leftButton">&lt;</button>
-        <div id="movieGallery" class="kodfun-galeri"></div>
-        <button class="scroll-button" id="rightButton">&gt;</button>
+            <div class="dropdown_menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="portfolio">Portfolio</a></li>
+                    <li><a href="services">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="action_btn">Me</a></li><!-- Action Button -->
+                </ul>
+            </div>
+        </div>
+    
     </div>
-
-    <!-- Year and Month Navigation -->
-    <div class="year-navigation">
-        <h3>2024</h3>
-        <ul class="month-list">
-            <li><a href="#">January</a></li>
-            <li><a href="#">February</a></li>
-            <li><a href="#">March</a></li>
-            <!-- Add more months as needed -->
-        </ul>
-
-    <div id="movieGallery" class="kodfun-galeri"></div>
-
-    <script>
-        const movies = [
-            { title: "Movie 1", description: "Movie 1 Description", imageUrl: "kf1.jpg", link: "https://example.com/movie1" },
-            { title: "Movie 2", description: "Movie 2 Description", imageUrl: "kf2.jpg", link: "https://example.com/movie2" },
-            { title: "Movie 3", description: "Movie 3 Description", imageUrl: "kf3.jpg", link: "https://example.com/movie3" },
-            { title: "Movie 4", description: "Movie 4 Description", imageUrl: "kf4.jpg", link: "https://example.com/movie4" },
-            { title: "Movie 5", description: "Movie 5 Description", imageUrl: "kf5.jpg", link: "https://example.com/movie5" },
-        ];
-
-        function populateGallery() {
-            const gallery = document.getElementById('movieGallery');
-            movies.forEach(movie => {
-                const movieDiv = document.createElement('div');
-                movieDiv.style.backgroundImage = `url('${movie.imageUrl}')`;
-
-                const movieInfo = document.createElement('div');
-                movieInfo.className = 'movie-info';
-                movieInfo.innerHTML = `
-                    <h4>${movie.title}</h4>
-                    <p>${movie.description}</p>
-                    <a href="${movie.link}" target="_blank" style="color: ${getComputedStyle(document.body).getPropertyValue('--accent-color')}; text-decoration: underline;">More Info</a>
-                `;
-
-                movieDiv.appendChild(movieInfo);
-                gallery.appendChild(movieDiv);
-            });
-        }
-
-        // Call the function on load
-        window.onload = () => {
-            populateGallery();
-        };
-    </script>
+    <script src="Movies.js"></script>
+    <div class="bottom-left-box">
+        <div class="grid-container">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+            <div class="grid-item">7</div>
+            <div class="grid-item">8</div>
+            <div class="grid-item">9</div>
+            <div class="grid-item">10</div>
+            <div class="grid-item">11</div>
+            <div class="grid-item">12</div>
+            <div class="grid-item">13</div>
+            <div class="grid-item">14</div>
+            <div class="grid-item">15</div>
+            <div class="grid-item">16</div>
+        </div>
+    </div>    
 </body>
 </html>
