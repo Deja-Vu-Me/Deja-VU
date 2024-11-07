@@ -48,3 +48,157 @@ css
         width: calc(50% - 10px); /* 2 images per row on small screens */
     }
 }
+ 
+
+ PART 2
+
+ html
+     <div class="bottom-left-box">
+        
+        <!-- From Uiverse.io by kamehame-ha -->
+        <div class="cards">
+                <div class="card">
+                    <img src="https://res.cloudinary.com/dawbvrrc9/image/upload/v1730797828/IMG_20241105_143838_218_osscgj.jpg" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+                <div class="card">
+                    <img src="https://t.me/cloudofthem/3521" alt="">
+                </div>
+        </div>            
+    </div>  
+
+
+    css
+/* Positioning the div in the bottom-left corner */
+.bottom-left-box {
+    position: fixed; /* Fixed position relative to the viewport */
+    top: 70px; /* Distance from the top of the screen */
+    bottom: 20px; /* Distance from the bottom of the screen */
+    left: 20px; /* Distance from the left side of the screen */
+    right: 20px; /* Distance from the right side of the screen */
+    width: 1500px; /* Adjust width as desired */
+    height: 500px;/* Adjust height as desired */
+    background-color: rgba(255, 255, 255, 0.016); /* Semi-transparent background */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding inside the box */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for the box */
+    font-size: 1rem; /* Text size */
+}
+
+
+/* From Uiverse.io by kamehame-ha */ 
+.cards {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    padding-top: 18px;
+  }
+  
+  .cards .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 384px;
+    width: 259.2px;
+    border: 2px solid white; /* Add border to each card */
+    border-radius: 10px;
+    border-color: white;
+    color: white;
+    cursor: pointer;
+    transition: 400ms;
+    transition: all ease-in-out 0.5s;
+  }
+
+  .card img {
+    width: 100%; /* Ensures the image fills the card's width */
+    height: 100%; /* Ensures the image fills the card's height */
+    border-radius: 8px; /* Matches the card’s rounded corners */
+    object-fit: cover; /* Crops and scales the image to fit the container */
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.card:hover img {
+    transform: scale(1.1); /* Zoom in the image on hover */
+    flex: auto;
+}
+
+.cards .card:hover {
+    transform: scale(1.05); /* Slightly enlarge the entire card on hover */
+}
+
+.cards:hover > .card:not(:hover) {
+    filter: blur(5px); /* Reduce blur for a subtle effect */
+    transform: scale(0.95); /* Slightly shrink non-hovered cards */
+}
+  
+
+
+      

@@ -145,32 +145,67 @@ header {
 /* Positioning the div in the bottom-left corner */
 .bottom-left-box {
     position: fixed; /* Fixed position relative to the viewport */
+    top: 70px; /* Distance from the top of the screen */
     bottom: 20px; /* Distance from the bottom of the screen */
     left: 20px; /* Distance from the left side of the screen */
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    right: 20px; /* Distance from the right side of the screen */
+    width: 1500px; /* Adjust width as desired */
+    height: 500px;/* Adjust height as desired */
+    background-color: rgba(255, 255, 255, 0.016); /* Semi-transparent background */
     color: white; /* Text color */
     padding: 10px 20px; /* Padding inside the box */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for the box */
     font-size: 1rem; /* Text size */
 }
-/* Creating a 4x4 grid */
-.grid-container {
-    display: grid; /* Enable grid layout */
-    grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
-    grid-template-rows: repeat(4, 100px); /* 4 rows, each 100px tall */
-    gap: 10px; /* Gap between items */
-    width: 100%; /* Make the grid take up the full width */
-    padding: 20px; /* Padding around the grid */
+
+
+/* From Uiverse.io by kamehame-ha */ 
+.cards {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    padding-top: 18px;
+  }
+  
+  .cards .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 384px;
+    width: 259.2px;
+    border: 2px solid white; /* Add border to each card */
+    border-radius: 10px;
+    border-color: white;
+    color: white;
+    cursor: pointer;
+    transition: 400ms;
+    transition: all ease-in-out 0.5s;
+  }
+
+  .card img {
+    width: 100%; /* Ensures the image fills the card's width */
+    height: 100%; /* Ensures the image fills the card's height */
+    border-radius: 8px; /* Matches the card’s rounded corners */
+    object-fit: cover; /* Crops and scales the image to fit the container */
+    transition: transform 0.5s ease; /* Smooth transition */
 }
 
-.grid-item {
-    background-color: rgba(0, 0, 0, 0.1); /* Light background color */
-    display: flex; /* Use flexbox for centering content */
-    justify-content: center; /* Horizontally center content */
-    align-items: center; /* Vertically center content */
-    border: 2px solid #333; /* Border around each grid item */
-    border-radius: 5px; /* Slightly rounded corners */
-    font-size: 1.5rem; /* Text size */
-    color: #333; /* Text color */
+.card:hover img {
+    transform: scale(1.1); /* Zoom in the image on hover */
+    flex: auto;
 }
+
+.cards .card:hover {
+    transform: scale(1.05); /* Slightly enlarge the entire card on hover */
+}
+
+.cards:hover > .card:not(:hover) {
+    filter: blur(5px); /* Reduce blur for a subtle effect */
+    transform: scale(0.95); /* Slightly shrink non-hovered cards */
+}
+  
+
+
