@@ -45,6 +45,7 @@ body {
     font-weight: 600;
     color: var(--accent-color);
     text-decoration: none;
+    position: sticky;
 }
 .header .container {
     display: flex;

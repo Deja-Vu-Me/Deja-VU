@@ -161,12 +161,37 @@ header {
 
 
 /* From Uiverse.io by kamehame-ha */ 
+.cards-container {
+    max-width: 100%; /* Sets the maximum width for horizontal scrolling */
+    overflow-x: auto; /* Enables horizontal scroll */
+    overflow-y: hidden;
+    padding: 10px; /* Adds padding around the scrollable container */
+    padding-bottom: 20px; /* Adds extra padding at the bottom to create space for the scrollbar */
+    box-sizing: border-box; /* Ensures padding is included in the container's width */
+}
+
 .cards {
     display: flex;
     flex-direction: row;
+    height: fit-content;
+    width: fit-content;
     gap: 15px;
     padding-top: 18px;
-  }
+    padding-left: 10px;
+    white-space: nowrap; /* Prevents cards from wrapping to the next line */
+}
+
+/* Optional: Custom scrollbar styling */
+.cards-container::-webkit-scrollbar {
+    padding-top: 20px;
+    height: 10px; /* Sets the scrollbar height */
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5); /* Styles the scrollbar thumb */
+    border-radius: 4px;
+}
+
   
   .cards .card {
     display: flex;
@@ -193,19 +218,71 @@ header {
     transition: transform 0.5s ease; /* Smooth transition */
 }
 
-.card:hover img {
-    transform: scale(1.1); /* Zoom in the image on hover */
-    flex: auto;
-}
-
 .cards .card:hover {
-    transform: scale(1.05); /* Slightly enlarge the entire card on hover */
+    transform: scale(1.1); /* Slightly enlarge the entire card on hover */
+    
 }
 
 .cards:hover > .card:not(:hover) {
     filter: blur(5px); /* Reduce blur for a subtle effect */
     transform: scale(0.95); /* Slightly shrink non-hovered cards */
 }
+/* Button styles */
+.controls {
+    position: absolute; /* Absolute position to place buttons in the center of the container */
+    top: 95%; /* Vertically center */
+    left: 50%; /* Horizontally center */
+    transform: translate(-95%, -50%); /* Adjust for exact center */
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    background-color: rgba(255, 255, 255, 0.164);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    scale: 1.05;
+    color: cyan;
+}
+
+button:focus {
+    outline: none;
+}
   
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    /* Reduce the number of cards per row */
+    .cards {
+        gap: 10px;
+    }
+
+    .card {
+        width: 200px; /* Smaller width for smaller screens */
+        height: 280px; /* Adjust height to match smaller cards */
+    }
+}
+
+/* Media Query for mobile screens */
+@media (max-width: 480px) {
+    .cards-container {
+        padding: 5px; /* Reduce padding on smaller screens */
+    }
+
+    .cards {
+        gap: 8px; /* Adjust gap between cards */
+    }
+
+    .card {
+        width: 160px; /* Even smaller width for very small screens */
+        height: 220px; /* Adjust height for very small screens */
+    }
+}
 
 
