@@ -22,7 +22,7 @@ li {
 a {
     text-decoration: none;
     color: white;
-    font-size: 1rem;
+    font-size: 1.15rem;
 }
 
 a:hover {
@@ -46,7 +46,7 @@ header {
 }
 
 .NavBar .logo a {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: bold;
 }
 
