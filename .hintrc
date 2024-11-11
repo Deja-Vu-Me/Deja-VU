@@ -14,7 +14,9 @@
       "default",
       {
         "ignore": [
-          "backdrop-filter"
+          "backdrop-filter",
+          "scrollbar-width",
+          "scrollbar-width: thin"
         ]
       }
     ],

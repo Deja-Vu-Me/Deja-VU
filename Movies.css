@@ -13,6 +13,7 @@ body {
     background-position: center;
     background-attachment: fixed; /* Make the background fixed */
     background-repeat: no-repeat; /* Prevent background image repetition */
+    overflow-y: hidden; /* Hide vertical scrollbar */
 }
 
 li {
@@ -44,11 +45,43 @@ header {
     align-items: center;
     justify-content: space-between;
 }
+.logo {
+    animation: glow 10s linear infinite;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #6666ff,
+        0 0 10px #6666ff,
+        0 0 15px #6666ff;
+    }
+    10% {
+        text-shadow: 0 0 8px #0099ff,
+        0 0 12px #0099ff,
+        0 0 18px #0099ff;
+        }
+        50% {
+            text-shadow: 0 0 5px #00ff00,
+            0 0 10px #00ff00,
+            0 0 15px #00ff00;
+        } 
+        75% {
+            text-shadow: 0 0 10px #ff3399,
+            0 0 12px #ff3399,
+            0 0 20px #ff3399;
+        }
+        100% {
+            text-shadow: 0 0 5px #6666ff,
+            0 0 10px #6666ff,
+            0 0 15px #6666ff;
+        }
+}
 
 .NavBar .logo a {
     font-size: 1.75rem;
     font-weight: bold;
 }
+
 
 .NavBar .links {
     display: flex;
@@ -142,147 +175,127 @@ header {
         width: unset;
     }
 }
-/* Positioning the div in the bottom-left corner */
-.bottom-left-box {
-    position: fixed; /* Fixed position relative to the viewport */
-    top: 70px; /* Distance from the top of the screen */
-    bottom: 20px; /* Distance from the bottom of the screen */
-    left: 20px; /* Distance from the left side of the screen */
-    right: 20px; /* Distance from the right side of the screen */
-    width: 1500px; /* Adjust width as desired */
-    height: 500px;/* Adjust height as desired */
-    background-color: rgba(255, 255, 255, 0.016); /* Semi-transparent background */
+.long_box {
+    background-color: rgba(255, 255, 255, 0.13); /* Background color for visibility */
     color: white; /* Text color */
-    padding: 10px 20px; /* Padding inside the box */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for the box */
-    font-size: 1rem; /* Text size */
+    padding: 20px; /* Padding inside the div */
+    margin: 20px; /* Margin outside the div */
+    border-radius: 8px; /* Optional: rounded corners */
+    font-size: 1.2rem; /* Font size */
+    text-align: center; /* Center align text */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping of images */
+    position: relative;
+    scrollbar-width: thin; /* For Firefox: make scrollbar thin */
+}
+/* Custom scrollbar styles for WebKit browsers (Chrome, Safari) */
+.long_box::-webkit-scrollbar {
+    height: 8px; /* Height of the horizontal scrollbar */
 }
 
-
-/* From Uiverse.io by kamehame-ha */ 
-.cards-container {
-    max-width: 100%; /* Sets the maximum width for horizontal scrolling */
-    overflow-x: auto; /* Enables horizontal scroll */
-    overflow-y: hidden;
-    padding: 10px; /* Adds padding around the scrollable container */
-    padding-bottom: 20px; /* Adds extra padding at the bottom to create space for the scrollbar */
-    box-sizing: border-box; /* Ensures padding is included in the container's width */
+.long_box::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5); /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners for the scrollbar thumb */
 }
 
-.cards {
+.long_box::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* Background of the scrollbar track */
+}
+.long_box:hover{
+    outline: solid;
+    outline-color: white;
+}
+/* IMAGE GALLERY IMAGE SLIDER ANIMATION */
+.movie.gallery {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
     display: flex;
-    flex-direction: row;
-    height: fit-content;
-    width: fit-content;
-    gap: 15px;
-    padding-top: 18px;
-    padding-left: 10px;
-    white-space: nowrap; /* Prevents cards from wrapping to the next line */
+    flex-wrap: wrap; /* Allow wrapping of images */
+    gap: 10px; /* Space between images */
+    padding: 10px; /* Padding around the gallery */
+    display: inline-flex; /* Use inline-flex for horizontal layout */
+    transition: transform 0.5s ease;
 }
 
-/* Optional: Custom scrollbar styling */
-.cards-container::-webkit-scrollbar {
-    padding-top: 20px;
-    height: 10px; /* Sets the scrollbar height */
+.movie.gallery img {
+    width: calc(20% - 10px); /* Keeps the images around 20% width on larger screens */
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid white;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transition for transform and filter */
+    filter: none; /* No blur by default */
 }
 
-.cards-container::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.5); /* Styles the scrollbar thumb */
-    border-radius: 4px;
+/* Apply blur effect to non-hovered images when one image is hovered */
+.movie.gallery img:hover {
+    transform: scale(1.1); /* Scale image on hover */
+    filter: blur(0); /* Apply a blur effect to non-hovered images */
 }
 
-  
-  .cards .card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    height: 384px;
-    width: 259.2px;
-    border: 2px solid white; /* Add border to each card */
+/* Media query for tablets and smaller screens */
+@media (max-width: 768px) {
+    .movie.gallery img {
+        width: calc(33.33% - 10px); /* 3 images per row on medium screens */
+    }
+}
+
+/* Media query for mobile screens */
+@media (max-width: 480px) {
+    .movie.gallery img {
+        width: calc(50% - 10px); /* 2 images per row on small screens */
+    }
+}
+.button-container {
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Place buttons at the edges */
+    align-items: center; /* Center buttons vertically */
+    height: 100px; /* Set a height for the container */
+    width: 100%; /* Full width of the parent */
+    padding: 0 20px; /* Add some padding on the sides */
+}
+
+.navigation-button {
+    background-color: transparent; /* No background */
+    border: none; /* Remove default button border */
+    cursor: pointer; /* Pointer cursor on hover */
     border-radius: 10px;
     border-color: white;
-    color: white;
-    cursor: pointer;
-    transition: 400ms;
-    transition: all ease-in-out 0.5s;
-  }
-
-  .card img {
-    width: 100%; /* Ensures the image fills the card's width */
-    height: 100%; /* Ensures the image fills the card's height */
-    border-radius: 8px; /* Matches the card’s rounded corners */
-    object-fit: cover; /* Crops and scales the image to fit the container */
-    transition: transform 0.5s ease; /* Smooth transition */
+    padding: 10px; /* Add some padding */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
-.cards .card:hover {
-    transform: scale(1.1); /* Slightly enlarge the entire card on hover */
-    
+/* Hover effect */
+.navigation-button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
 }
 
-.cards:hover > .card:not(:hover) {
-    filter: blur(5px); /* Reduce blur for a subtle effect */
-    transform: scale(0.95); /* Slightly shrink non-hovered cards */
-}
-/* Button styles */
-.controls {
-    position: absolute; /* Absolute position to place buttons in the center of the container */
-    top: 95%; /* Vertically center */
-    left: 50%; /* Horizontally center */
-    transform: translate(-95%, -50%); /* Adjust for exact center */
-    display: flex;
-    gap: 20px;
+/* Focus styles for accessibility */
+.navigation-button:focus {
+    outline: 2px solid #007bff; /* Outline for focus */
+    outline-offset: 2px; /* Space between outline and button */
 }
 
-button {
-    background-color: rgba(255, 255, 255, 0.164);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+/* Icon styles */
+.navigation-button i {
+    font-size: 24px; /* Increase icon size */
+    color: #333; /* Icon color */
 }
 
-button:hover {
-    scale: 1.05;
-    color: cyan;
+/* Change icon color on hover */
+.navigation-button:hover i {
+    color: #007bff; /* Change icon color on hover */
 }
 
-button:focus {
-    outline: none;
-}
-  
-/* Media Query for smaller screens */
-@media (max-width: 768px) {
-    /* Reduce the number of cards per row */
-    .cards {
-        gap: 10px;
-    }
-
-    .card {
-        width: 200px; /* Smaller width for smaller screens */
-        height: 280px; /* Adjust height to match smaller cards */
-    }
+.left {
+    left: 10px; /* Position the left button */
 }
 
-/* Media Query for mobile screens */
-@media (max-width: 480px) {
-    .cards-container {
-        padding: 5px; /* Reduce padding on smaller screens */
-    }
-
-    .cards {
-        gap: 8px; /* Adjust gap between cards */
-    }
-
-    .card {
-        width: 160px; /* Even smaller width for very small screens */
-        height: 220px; /* Adjust height for very small screens */
-    }
+.right {
+    right: 10px; /* Position the right button */
 }
 
+/* From Uiverse.io by Praashoo7 */ 
+/* CodePen Card */
 
