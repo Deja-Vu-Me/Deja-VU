@@ -1,15 +1,11 @@
-/* Import the Raleway font */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
-
-/* Root color variables */
+/* Define CSS Variables for the Color Palette */
 :root {
-    --text-color: #ffffff;
-    --secondary-bg: #303559;
-    --tertiary-bg: #303559;
-    --quaternary-bg: #1b2039;
-    --accent-color: #ee9049;
-    --inverse-bg: #ffffff;
-    --inverse-text: #1b2039;
+    --color-accent: #F205E2; /* Bright Pink */
+    --color-background: #0D0D0D; /* Dark Background */
+    --color-primary: #272F59; /* Dark Blue */
+    --color-secondary: #537FA6; /* Light Blue */
+    --color-tertiary: #65A6BF; /* Teal */
+    --color-text: #FFFFFF; /* White Text */
 }
 
 /* General Reset */
@@ -19,172 +15,132 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Raleway', sans-serif;
-    background-color: var(--quaternary-bg);
-    color: var(--text-color);
+/* Remove underline from all links */
+a {
+    text-decoration: none;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+/* Apply font styles globally */
+body {
+    height: 100vh;
+    background-color: var(--color-background); /* Use dark background color */
+    font-family: 'Nunito Sans', Futura, sans-serif; /* Futura-like fallback */
+    color: var(--color-text); /* Set text color to white */
+}
+
+/* Logo */
+.logo {
+    width: 300px; /* Set a fixed width for the box */
+    max-width: 100%; /* Allow it to be responsive */
+    margin-left: 1rem; /* Position it at the top left corner */
+    padding: 10px; /* Reduce padding inside the box */
+    border: 2px solid rgba(242, 5, 226, 0.5); /* Use accent color with 50% opacity */
+    border-radius: 10px; /* Optional: rounded corners */
+    color: var(--color-accent); /* Set text color to accent */
+    -webkit-text-stroke: 2px var(--color-accent); /* Add accent outline to the text */
+    font-size: 24px; /* Default font size */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); /* Box Shadows for Logo */
+    transition: transform 0.3s ease, border-color 0.3s ease; /* Smooth transition for size and color changes */
+}
+
+.logo:hover {
+    transform: scale(1.05); /* Increase size by 5% */
+    border-width: 4px;
+    border-color: var(--color-accent); /* Change border color to accent on hover */
 }
 
 /* Header Styling */
 .header {
-    background: linear-gradient(135deg, #1b2039, #303559);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
-}
-.header .logo {
-    font-size: 38px;
-    font-weight: 600;
-    color: var(--accent-color);
-}
-.header .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--color-accent); /* Use accent color */
 }
 
+/* Navigation Links */
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px; /* Adds space between each link */
-    margin-left: auto; /* Moves the navigation links to the right side */
+    list-style: none;           /* Remove default list styles */
+    display: flex;             /* Use flexbox for layout */
+    gap: 20px;                 /* Space between links */
+    margin-left: auto;         /* Align links to the right */
+    color: var(--color-text);  /* Default text color */
 }
 
 .nav-link {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    padding: 10px 15px; /* Adds padding around each link */
-    transition: transform 0.3s ease, color 0.3s ease;
+    text-decoration: none;      /* Remove underline from links */
+    color: var(--color-text);   /* Use text color */
+    font-weight: 600;          /* Bold font weight */
+    padding: 10px 15px;       /* Padding around the link */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions */
 }
 
-/* Links Styling */
-.nav-links a,
-.cta {
-    background-color: var(--accent-color);
-    color: var(--quaternary-bg);
-    padding: 10px 20px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    border-radius: 25px;
-    text-decoration: none;
-}
+/* Hover and focus effect for navigation links */
 .nav-links a:hover,
 .nav-links a:focus {
-    background-color: var(--inverse-bg);
-    color: var(--inverse-text);
-    transform: scale(1.1);
-    outline: none;
+    background-color: var(--color-secondary); /* Change background on hover/focus */
+    color: var(--color-background);            /* Change text color to dark background on hover */
+    transform: scale(1.1);                     /* Slightly enlarge the link */
+    outline: none;                             /* Remove default outline */
 }
 
-/* Responsive Navigation */
-@media (max-width: 600px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        background-color: var(--tertiary-bg);
-    }
-    .nav-links.active {
-        display: flex;
-    }
-    .nav-toggle {
-        display: block;
-        color: var(--text-color);
-    }
+/* Hero Section */
+.hero {
+    background-color: var(--color-primary); /* Use primary color */
+    color: var(--color-text);
+    text-align: center;
+    padding: 60px 0;
 }
 
-/* Contact Section */
-.contact {
+.hero h2 {
+    font-size: 2.25rem; /* Using rem for better scalability */
+    font-weight: 600;
+    margin-bottom: 1rem; /* Added margin for spacing */
+}
+
+.hero p {
+    font-size: 1.125rem; /* Using rem for better scalability */
+    margin: 10px 0 20px;
+}
+
+/* Features Section */
+.features {
     padding: 40px 0;
-    background-color: var(--secondary-bg);
+    background-color: var(--color-secondary); /* Use secondary color */
+    color: var(--color-text);
     text-align: center;
 }
-.contact h2 {
-    font-size: 36px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-.contact p {
-    font-size: 18px;
-    margin-bottom: 15px;
+
+.features h2 {
+    font-size: 2rem; /* Font size for section title */
+    margin-bottom: 20px; /* Space below the title */
 }
 
-/* Contact Form */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    max-width: 600px;
-    margin: 20px auto;
-}
-form input,
-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--inverse-bg);
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: var(--tertiary-bg);
-    color: var(--text-color);
-}
-form button {
-    background-color: var(--accent-color);
-    color: var(--quaternary-bg);
-    padding: 10px 20px;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-    border-radius: 25px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-form button:hover {
-    background-color: var(--text-color);
-    color: var(--accent-color);
-    transform: scale(1.05);
-}
-
-/* Social Media Links */
-.social-media-links {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-.social-media-links li a {
-    color: var(--accent-color);
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-.social-media-links li a:hover {
-    color: var(--inverse-bg);
+.features .feature {
+    margin: 20px 0; /* Space between features */
+    padding: 20px; /* Padding around each feature */
+    background-color: var(--color-tertiary); /* Use tertiary color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
 /* Footer */
 .footer {
-    background-color: var(--tertiary-bg);
-    color: var(--text-color);
+    background-color: var(--color-primary); /* Use primary color */
+    color: var(--color-text);
     text-align: center;
     padding: 20px 0;
 }
+
 .footer a {
-    color: var(--accent-color);
-    text-decoration: none;
+    color: var(--color-accent); /* Use accent color for links */
+    text-decoration: none; /* Remove underline */
 }
+
 .footer a:hover {
-    color: var(--inverse-bg);
+    color: var(--color-secondary); /* Change color on hover */
 }
 
 /* Fade-Out Animation */
@@ -193,5 +149,5 @@ form button:hover {
     to { opacity: 0; }
 }
 .fade-out {
-    animation: fadeOut 0.5s forwards;
+    animation: fadeOut 0.5s forwards; /* Fade-out effect */
 }

@@ -27,7 +27,7 @@ body {
 
 /* Logo */
 .logo {
-    width: 300px; /* Set a fixed width for the box */
+    width: 250px; /* Set a fixed width for the box */
     max-width: 100%; /* Allow it to be responsive */
     margin-left: 1rem; /* Position it at the top left corner */
     padding: 10px; /* Reduce padding inside the box */
@@ -35,17 +35,23 @@ body {
     transition: all 0.3s ease; /* Smooth transition for size and color changes */
     
     /* Box styling */
-    border: 2px solid rgba(255, 255, 255, 0.284); /* White border with 50% opacity */
+    border: 2px solid rgba(216, 191, 216, 0.5); /* Steel pink border with 50% opacity */
     border-radius: 10px; /* Optional: rounded corners */
-    color: white; /* Set text color to white */
-    -webkit-text-stroke: 2px white; /* Add white outline to the text */
+    color: #D8BFD8; /* Set text color to steel pink */
+    -webkit-text-stroke: 2px #D8BFD8; /* Add steel pink outline to the text */
     font-size: 24px; /* Default font size */
+}
+
+/* Box Shadows for Logo */
+.logo {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
 }
 
 /* Hover effect */
 .logo:hover {
     transform: scale(1.05); /* Increase size by 5% */
-    border-color: #ffffff;
+    border-width: 4px;
+    border-color: #ff00ff; /* Change border color to steel pink on hover */
 }
 
 /* Responsive adjustments */
@@ -83,44 +89,60 @@ body {
     justify-content: space-between;
 }
 
+/* Navigation Links */
 .nav-links {
-    list-style: none;
-    display: flex;
-    color: #ffffff;
-    gap: 20px; 
-    margin-left: auto; 
+    list-style: none;           /* Remove default list styles */
+    display: flex;             /* Use flexbox for layout */
+    gap: 20px;                 /* Space between links */
+    margin-left: auto;         /* Align links to the right */
+    color: #ffffff;            /* Default text color */
 }
 
 .nav-link {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    padding: 10px 15px; 
-    transition: transform 0.3s ease, color 0.3s ease;
+    text-decoration: none;      /* Remove underline from links */
+    color: var(--text-color);   /* Use CSS variable for text color */
+    font-weight: 600;          /* Bold font weight */
+    padding: 10px 15px;       /* Padding around the link */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions */
 }
 
+/* Navigation Toggle Button */
 .nav-toggle {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: var(--text-color);
+    display: none;             /* Hidden by default (for mobile) */
+    font-size: 24px;          /* Font size for toggle button */
+    background: none;         /* No background */
+    border: none;             /* No border */
+    color: var(--text-color);  /* Use CSS variable for text color */
+}
+/* Hover and focus effect for navigation links */
+.nav-links a:hover,
+.nav-links a:focus {
+    background-color: var(--inverse-bg); /* Change background on hover/focus */
+    color: #dc63dc;                      /* Change text color to magenta on hover */
+    transform: scale(1.1);               /* Slightly enlarge the link */
+    outline: none;                       /* Remove default outline */
+    border-color: #f6b8f6;                 /* Change border color to white */
+    border-width: 2px;                  /* Optional: Set border width */
+    border-style: solid;                 /* Optional: Define border style */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transition for all properties */
 }
 
 /* Responsive Navigation */
-@media (max-width: 600px) {
+@media (max-width: 830px) {
     .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        background-color: var(--tertiary-bg);
+        display: none;                      /* Hide navigation links by default */
+        flex-direction: column;            /* Stack links vertically */
+        width: 100%;                       /* Full width */
+        text-align: center;                /* Center align text */
+        background-color: var(--tertiary-bg); /* Background color for mobile */
     }
+    
     .nav-links.active {
-        display: flex;
+        display: flex;                     /* Show links when active */
     }
+    
     .nav-toggle {
-        display: block;
+        display: block;                    /* Show toggle button */
     }
 }
 
@@ -139,16 +161,6 @@ body {
     border: 2px solid transparent; /* Add transparent border for the box effect */
 }
 
-/* Hover effect for nav links */
-.nav-links a:hover,
-.nav-links a:focus {
-    background-color: var(--inverse-bg);
-    color: white; /* Change text color to white on hover */
-    transform: scale(1.1);
-    outline: none; /* Remove outline */
-    border-color: white; /* Add white border on hover */
-}
-
 /* Outline Text */
 .outline-text {
     color: white;
@@ -162,14 +174,22 @@ body {
     text-align: center;
     padding: 60px 0;
 }
+
 .hero h2 {
-    font-size: 36px;
+    font-size: 2.25rem; /* Using rem for better scalability */
     font-weight: 600;
+    margin-bottom: 1rem; /* Added margin for spacing */
 }
+
 .hero p {
-    font-size: 18px;
+    font-size: 1.125rem; /* Using rem for better scalability */
     margin: 10px 0 20px;
 }
+
+.cta {
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Added transition for smooth effect */
+}
+
 .cta:hover {
     background-color: var(--text-color);
     color: var(--accent-color);
@@ -182,15 +202,79 @@ body {
     background-color: var(--tertiary-bg);
     text-align: center;
 }
+
+.container {
+    max-width: 1200px; /* Adjust this value as needed */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Add some horizontal padding */
+}
+
+.feature-item {
+    position: relative; /* Required for absolute positioning of the box */
+    margin: 20px 0; /* Added margin for spacing between feature items */
+    overflow: hidden; /* Ensures the box stays within the feature item */
+}
+.feature-item:hover {
+    scale: 1.3;
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.feature-item .box {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    border: 2px solid transparent; /* Initial border color */
+    border-radius: 8px; /* Rounded corners */
+    padding: auto; /* Padding inside the box */
+    transition: border-color 0.3s ease; /* Transition for border color change */
+}
+
+.feature-item:hover .box {
+    border-color: #f6b8f6;                 /* Change border color to white */
+    border-width: 2px;                  /* Optional: Set border width */
+    border-style: solid;                 /* Optional: Define border style */
+}
+
 .feature-item h3 {
-    font-size: 24px;
+    font-size: 1.5rem; /* Using rem for better scalability */
     font-weight: 600;
     color: var(--accent-color);
+    position: relative; /* Required for the pseudo-element */
+    display: inline-block; /* Allows padding and margin to work correctly */
+    padding: 0.2rem 0.5rem; /* Padding for the text */
 }
+
+.feature-item h3::after {
+    content: ''; /* Empty content for the pseudo-element */
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    border: 2px solid transparent; /* Initial border color */
+    border-radius: 10px; /* Rounded corners */
+    transition: border-color 0.3s ease; /* Transition for border color change */
+    z-index: -1; /* Place it behind the text */
+}
+
+.feature-item h3:hover::after {
+    border-color: #f6b8f6;                 /* Change border color to white */
+    border-width: 2px;                  /* Optional: Set border width */
+    border-style: solid;                 /* Optional: Define border style */
+}
+
 .feature-item p {
     padding: 16px 0;
-    font-size: 16px;
+    font-size: 1rem; /* Using rem for better scalability */
     color: var(--text-color);
+}
+
+/* Link Styles */
+.feature-item h3 a {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from h3 */
+}
+
+.feature-item h3 a:hover {
+    color: var(--accent-color); /* Change color on link hover, if needed */
 }
 
 /* Footer */
@@ -212,4 +296,37 @@ body {
 }
 .fade-out {
     animation: fadeOut 0.5s forwards;
+}
+.custom-scrollbar {
+    max-height: auto; /* Set a max height for the div */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px; /* Add some padding inside the div */
+    background-color: rgba(255, 255, 255, 0); /* Semi-transparent background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Custom scrollbar for WebKit browsers (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2); /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the thumb on hover */
+}
+
+/* Custom scrollbar for Firefox */
+.custom-scrollbar {
+    scrollbar-width: thin; /* Make the scrollbar thin */
+    scrollbar-color: #888 rgba(255, 255, 255, 0.2); /* Thumb color and track color */
 }
